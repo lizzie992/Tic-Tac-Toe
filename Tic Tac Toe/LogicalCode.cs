@@ -56,5 +56,18 @@ namespace Tic_Tac_Toe
             int randomNumber = random.Next(minValue, maxValue);
             return randomNumber;
         }
+
+        public static bool PlayerWinning()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public static bool ComputerWinning()
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

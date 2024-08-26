@@ -1,4 +1,6 @@
-﻿namespace Tic_Tac_Toe
+﻿using System.Diagnostics;
+
+namespace Tic_Tac_Toe
 {
     public static class UserInterface
     {
@@ -51,10 +53,48 @@
             return y;
         }
 
+        /// <summary>
+        /// Prints the text when it is time for the computer to play its next move
+        /// </summary>
         public static void ComputerPlays()
         {
-            Console.WriteLine($"Now the Computer's turn!\r\n");
+            Console.WriteLine($"Now it is the Computer's turn!\r\nThe computer plays his next move:");
         }
+
+        /// <summary>
+        /// Warning for the player that they cannot overwrite the computer's symbol
+        /// </summary>
+        public static void PlayAgain()
+        {
+            Console.WriteLine($"You cannot place overwrite the computer's symbol! Try again!\r\n");
+        }
+
+        /// <summary>
+        /// Prints the text when the player won
+        /// </summary>
+        public static void WonByPlayer()
+        {
+            Console.WriteLine("You Won!");
+        }
+
+        /// <summary>
+        /// Prints the text when the computer won
+        /// </summary>
+        public static void WonByComputer()
+        {
+            Console.WriteLine("The computer won this game! Try again!");
+        }
+
+        /// <summary>
+        /// Clears the screen before the next round
+        /// </summary>
+        public static void ClearTheScreen()
+        {
+            Console.WriteLine("\r\nPlease press any button to move on to the next round!");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
     }
 }
 

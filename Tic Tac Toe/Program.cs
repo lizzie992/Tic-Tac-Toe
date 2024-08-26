@@ -11,26 +11,60 @@
             const string PLAYERCHARACTER = " X ";
             const string COMPUTERCHARACTER = " O ";
 
+            int numberOfRowFromPlayer = 0;
+            int numberOfColumnFromPlayer = 0;
+            int numberOfRowFromComputer = 0;
+            int numberOfColumnFromComputer = 0;
+
             //create the empty grid that we will fill up with characters:
             LogicalCode.CreateEmptyGrid(grid);
 
             //and print it:
             UserInterface.PrintGrid(grid);
 
-            for (int i = 0; i < sizeOfGrid * sizeOfGrid; i++)
+            do
             {
-                int numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
-                int numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
+                numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
+                numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
+                if (numberOfRowFromComputer == numberOfRowFromPlayer && numberOfColumnFromComputer == numberOfColumnFromPlayer)
+                    do 
+                    {
+                        UserInterface.PlayAgain();
+                        numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
+                        numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
+                    } while (numberOfRowFromComputer == numberOfRowFromPlayer && numberOfColumnFromComputer == numberOfColumnFromPlayer);
                 grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYERCHARACTER;
                 UserInterface.PrintGrid(grid);
 
                 UserInterface.ComputerPlays();
-                int numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
-                int numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
+                numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
+                numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
+                if (numberOfRowFromComputer == numberOfRowFromPlayer && numberOfColumnFromComputer == numberOfColumnFromPlayer)
+                {
+                    do
+                    {
+                        numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
+                        numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
+                    } while (numberOfRowFromComputer == numberOfRowFromPlayer && numberOfColumnFromComputer == numberOfColumnFromPlayer);
+                }
                 grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTERCHARACTER;
                 UserInterface.PrintGrid(grid);
 
+                UserInterface.ClearTheScreen();
+
+            } while (LogicalCode.ComputerWinning() == false && LogicalCode.PlayerWinning() == false);
+
+
+            if (LogicalCode.ComputerWinning() == true)
+            {
+                UserInterface.WonByComputer();
             }
+
+            if (LogicalCode.PlayerWinning() == true)
+            {
+                UserInterface.WonByPlayer();
+            }
+
         }
     }
 }
