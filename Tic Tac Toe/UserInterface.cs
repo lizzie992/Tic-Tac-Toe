@@ -27,11 +27,11 @@
         /// Defines the number of rows for the next character in the grid
         /// </summary>
         /// <returns>Number of rows for the next character in the grid as an int</returns>
-        public static int PlayerMoveRow()
+        public static int PlayerMoveRow(int numberOfRow)
         {
             const string INSTUCTION_FOR_ROW = "Please give me the number of row where you want to play your next move (1-3 from top to bottom):";
             Console.WriteLine(INSTUCTION_FOR_ROW);
-            int numberOfRow = Convert.ToInt32(Console.ReadLine());
+            numberOfRow = Convert.ToInt32(Console.ReadLine());
             numberOfRow--;
             return numberOfRow;
         }
@@ -40,11 +40,11 @@
         /// Defines the number of columns for the next character in the grid
         /// </summary>
         /// <returns>Number of columns for the next character in the grid as an int</returns>
-        public static int PlayerMoveColumn()
+        public static int PlayerMoveColumn(int numberOfColumn)
         {
             const string INSTUCTION_FOR_COLUMN = "Please give me the number of column where you want to play your next move (1-3 from left to right):";
             Console.WriteLine(INSTUCTION_FOR_COLUMN);
-            int numberOfColumn = Convert.ToInt32(Console.ReadLine());
+            numberOfColumn = Convert.ToInt32(Console.ReadLine());
             numberOfColumn--;
             return numberOfColumn;
         }
