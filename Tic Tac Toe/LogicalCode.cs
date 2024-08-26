@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -29,6 +30,31 @@ namespace Tic_Tac_Toe
                     grid[x, y] = UNDERLINE;
                 }
             }
-        } 
+        }
+
+        /// <summary>
+        /// Returns a random number between 0-3 to use for the computer's symbol placement
+        /// </summary>
+        /// <returns>Returns the row's value for the computer's next move</returns>
+        public static int ComputerPlaysItsNextRow()
+        {
+            int minValue = 0; 
+            int maxValue = 3;
+            Random random = new Random();
+            int randomNumber = random.Next(minValue, maxValue);
+            return randomNumber;
+        }
+        /// <summary>
+        /// Returns a random number between 0-3 to use for the computer's symbol placement
+        /// </summary>
+        /// <returns>Returns the column's value for the computer's next move</returns>
+        public static int ComputerPlaysItsNextColumn()
+        {
+            int minValue = 0;
+            int maxValue = 3;
+            Random random = new Random();
+            int randomNumber = random.Next(minValue, maxValue);
+            return randomNumber;
+        }
     }
 }

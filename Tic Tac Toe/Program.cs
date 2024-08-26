@@ -17,11 +17,20 @@
             //and print it:
             UserInterface.PrintGrid(grid);
 
-            //now add the first move from the player:
-            int numberOfRow = UserInterface.PlayerMoveRow();
-            int numberOfColumn = UserInterface.PlayerMoveColumn();
-            grid[numberOfRow, numberOfColumn] = PLAYERCHARACTER;
-            UserInterface.PrintGrid(grid);
+            for (int i = 0; i < sizeOfGrid * sizeOfGrid; i++)
+            {
+                int numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
+                int numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
+                grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYERCHARACTER;
+                UserInterface.PrintGrid(grid);
+
+                UserInterface.ComputerPlays();
+                int numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
+                int numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
+                grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTERCHARACTER;
+                UserInterface.PrintGrid(grid);
+
+            }
         }
     }
 }
