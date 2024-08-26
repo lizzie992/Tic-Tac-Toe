@@ -11,15 +11,14 @@
             const string PLAYERCHARACTER = " X ";
             const string COMPUTERCHARACTER = " O ";
 
-            int numberOfRow = 0;
-            int numberOfColumn = 0;
-
             //create the empty grid that we will fill up with characters:
             LogicalCode.CreateEmptyGrid(grid);
 
             //and print it:
             UserInterface.PrintGrid(grid);
 
+            int numberOfRow = 0;
+            int numberOfColumn = 0;
             UserInterface.PlayerMoveRow(numberOfRow);
             UserInterface.PlayerMoveColumn(numberOfColumn);
             grid[numberOfRow, numberOfColumn] = PLAYERCHARACTER;
