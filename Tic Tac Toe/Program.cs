@@ -17,10 +17,9 @@
             //and print it:
             UserInterface.PrintGrid(grid);
 
-            int numberOfRow = 0;
-            int numberOfColumn = 0;
-            UserInterface.PlayerMoveRow(numberOfRow);
-            UserInterface.PlayerMoveColumn(numberOfColumn);
+            //now add the first move from the player:
+            int numberOfRow = UserInterface.PlayerMoveRow();
+            int numberOfColumn = UserInterface.PlayerMoveColumn();
             grid[numberOfRow, numberOfColumn] = PLAYERCHARACTER;
             UserInterface.PrintGrid(grid);
         }
