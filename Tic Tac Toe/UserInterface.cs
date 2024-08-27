@@ -13,10 +13,10 @@ namespace Tic_Tac_Toe
         public static void PrintGrid(string[,] grid)
         {
             Console.WriteLine("Here is the current state of the game: ");
-            const int sizeOfGrid = 3;
-            for (int x = 0; x < sizeOfGrid; x++)
+            const int SIZE_OF_GRID = 3;
+            for (int x = 0; x < SIZE_OF_GRID; x++)
             {
-                for (int y = 0; y < sizeOfGrid; y++)
+                for (int y = 0; y < SIZE_OF_GRID; y++)
                 {
                     Console.Write(grid[x, y]);
                 }
@@ -111,6 +111,24 @@ namespace Tic_Tac_Toe
             else
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Checking the input from the player, if it is valid for this grid size
+        /// </summary>
+        /// <param name="number">Index number that we will use in the grid</param>
+        /// <returns></returns>
+        public static bool IsTheNumberValid(int number)
+        {
+            if (number <= 2 && number >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Please give me a valid number! The value has to be between 1 and 3!");
+                return false; 
             }
         }
 

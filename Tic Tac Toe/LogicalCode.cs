@@ -11,8 +11,8 @@ namespace Tic_Tac_Toe
 
     class LogicalCode
     {
-        const int sizeOfGrid = 3;
-        string[,] grid = new string[sizeOfGrid, sizeOfGrid];
+        const int SIZE_OF_GRID = 3;
+        string[,] grid = new string[SIZE_OF_GRID, SIZE_OF_GRID];
 
         /// <summary>
         /// This method created an empty 3x3 grid
@@ -23,9 +23,9 @@ namespace Tic_Tac_Toe
             const string UNDERLINE = " _ ";
             int x = 0;
             int y = 0;
-            for (x = 0; x < sizeOfGrid; x++)
+            for (x = 0; x < SIZE_OF_GRID; x++)
             {
-                for (y = 0; y < sizeOfGrid; y++)
+                for (y = 0; y < SIZE_OF_GRID; y++)
                 {
                     grid[x, y] = UNDERLINE;
                 }

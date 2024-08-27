@@ -5,8 +5,8 @@
         static void Main(string[] args)
         {
             //define variables:
-            const int sizeOfGrid = 3;
-            string[,] grid = new string[sizeOfGrid, sizeOfGrid];
+            const int SIZE_OF_GRID = 3;
+            string[,] grid = new string[SIZE_OF_GRID, SIZE_OF_GRID];
 
             const string PLAYERCHARACTER = " X ";
             const string COMPUTERCHARACTER = " O ";
@@ -36,6 +36,23 @@
                         numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
                     } while (UserInterface.PlayerOverwritesComputer(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
                 }
+
+                if (UserInterface.IsTheNumberValid(numberOfRowFromPlayer) == false)
+                {
+                    do
+                    {
+                        numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
+                    } while (UserInterface.IsTheNumberValid(numberOfRowFromPlayer) == false);
+                }
+
+                if (UserInterface.IsTheNumberValid(numberOfColumnFromPlayer) == false)
+                {
+                    do
+                    {
+                        numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
+                    } while (UserInterface.IsTheNumberValid(numberOfColumnFromPlayer) == false);
+                }
+
                 grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYERCHARACTER;
                 UserInterface.PrintGrid(grid);
 
