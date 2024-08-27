@@ -95,6 +95,25 @@ namespace Tic_Tac_Toe
             Console.Clear();
         }
 
+        /// <summary>
+        /// Compares the values that the player has given with the values from the computer, if they are the same
+        /// </summary>
+        /// <param name="x">numberOfRowFromComputer</param>
+        /// <param name="y">numberOfRowFromPlayer</param>
+        /// <param name="w">numberOfColumnFromComputer></param>
+        /// <param name="z">numberOfColumnFromPlayer</param>
+        public static bool PlayerOverwritesComputer(int x, int y, int w, int z)
+        {
+            if (x == y && w == z)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
 

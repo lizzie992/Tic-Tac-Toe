@@ -57,6 +57,28 @@ namespace Tic_Tac_Toe
             return randomNumber;
         }
 
+        /// <summary>
+        /// Compares the values that the computer has given with the values from the player, if they are the same
+        /// </summary>
+        /// <param name="x">numberOfRowFromComputer</param>
+        /// <param name="y">numberOfRowFromPlayer</param>
+        /// <param name="w">numberOfColumnFromComputer></param>
+        /// <param name="z">numberOfColumnFromPlayer</param>
+        /// <returns></returns>
+        public static bool ComputerOverwritesPLayer(int x, int y, int w, int z)
+        {
+            if (x == y && w == z)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
         public static bool PlayerWinning()
         {
             throw new NotImplementedException();
