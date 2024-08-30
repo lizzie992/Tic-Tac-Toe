@@ -4,7 +4,6 @@
     {
         static void Main(string[] args)
         {
-            //define variables:
             const int SIZE_OF_GRID = 3;
             string[,] grid = new string[SIZE_OF_GRID, SIZE_OF_GRID];
 
@@ -16,14 +15,14 @@
             int numberOfRowFromComputer = 9;
             int numberOfColumnFromComputer = 9;
 
-            //create the empty grid that we will fill up with characters:
             LogicalCode.CreateEmptyGrid(grid);
 
-            //and print it:
             UserInterface.PrintGrid(grid);
 
             do
             {
+                UserInterface.ClearTheScreen();
+
                 numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
                 numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
 
@@ -70,21 +69,18 @@
                 grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTERCHARACTER;
                 UserInterface.PrintGrid(grid);
 
-                UserInterface.ClearTheScreen();
-
-            } while (numberOfRowFromComputer < 10); //(LogicalCode.ComputerWinning() == false && LogicalCode.PlayerWinning() == false);
+            } while (LogicalCode.Winning(grid, PLAYERCHARACTER, SIZE_OF_GRID) == false && LogicalCode.Winning(grid, COMPUTERCHARACTER, SIZE_OF_GRID) == false);
 
 
-            if (LogicalCode.ComputerWinning() == true)
-            {
-                UserInterface.WonByComputer();
-            }
 
-            if (LogicalCode.PlayerWinning() == true)
+            if (LogicalCode.Winning(grid, PLAYERCHARACTER, SIZE_OF_GRID))
             {
                 UserInterface.WonByPlayer();
             }
-
+            if (LogicalCode.Winning(grid, COMPUTERCHARACTER, SIZE_OF_GRID))
+            {
+                UserInterface.WonByComputer();
+            }
         }
     }
 }
