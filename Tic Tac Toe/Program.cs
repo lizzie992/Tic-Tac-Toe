@@ -6,7 +6,7 @@
         {
             const int SIZE_OF_GRID = 3;
             string[,] grid = new string[SIZE_OF_GRID, SIZE_OF_GRID];
-
+            const string UNDERLINE = " _ ";
             const string PLAYERCHARACTER = " X ";
             const string COMPUTERCHARACTER = " O ";
 
@@ -26,14 +26,14 @@
                 numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
                 numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
 
-                if (UserInterface.PlayerOverwritesComputer(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true)
+                if (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true)
                 {
                     do
                     {
                         UserInterface.PlayAgain();
                         numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
                         numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
-                    } while (UserInterface.PlayerOverwritesComputer(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
+                    } while (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
                 }
 
                 if (UserInterface.IsTheNumberValid(numberOfRowFromPlayer) == false)
@@ -58,16 +58,22 @@
                 UserInterface.ComputerPlays();
                 numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
                 numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
-                if (LogicalCode.ComputerOverwritesPLayer(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true)
+                if (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true)
                 {
                     do
                     {
                         numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
                         numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
-                    } while (LogicalCode.ComputerOverwritesPLayer(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
+                    } while (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
                 }
                 grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTERCHARACTER;
                 UserInterface.PrintGrid(grid);
+
+                if (LogicalCode.NoOneWinning(grid, UNDERLINE) == true)
+                {
+                    UserInterface.ItIsATie();
+                    break;
+                }
 
             } while (LogicalCode.Winning(grid, PLAYERCHARACTER, SIZE_OF_GRID) == false && LogicalCode.Winning(grid, COMPUTERCHARACTER, SIZE_OF_GRID) == false);
 

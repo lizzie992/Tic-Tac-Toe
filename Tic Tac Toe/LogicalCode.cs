@@ -44,6 +44,7 @@ namespace Tic_Tac_Toe
             int randomNumber = random.Next(minValue, maxValue);
             return randomNumber;
         }
+
         /// <summary>
         /// Returns a random number between 0-3 to use for the computer's symbol placement
         /// </summary>
@@ -65,7 +66,7 @@ namespace Tic_Tac_Toe
         /// <param name="w">numberOfColumnFromComputer></param>
         /// <param name="z">numberOfColumnFromPlayer</param>
         /// <returns></returns>
-        public static bool ComputerOverwritesPLayer(int x, int y, int w, int z)
+        public static bool SomeoneOverwritesACharacter(int x, int y, int w, int z)
         {
             if (x == y && w == z)
             {
@@ -77,8 +78,44 @@ namespace Tic_Tac_Toe
             }
         }
 
-
-
+        /// <summary>
+        /// CHecking if all the fields of the grid are filled up with characters. If everything is filled up and no winning combination, then the game is a tie
+        /// </summary>
+        /// <param name="grid">Name of the grid</param>
+        /// <param name="X">Name of the empty character</param>
+        /// <returns></returns>
+        public static bool NoOneWinning(string[,] grid, string X)
+        {
+            bool NoOneWinning = false;
+            const string UNDERLINE = " _ ";
+            for (int x = 0; x < SIZE_OF_GRID; x++)
+            {
+                for (int y = 0; y < SIZE_OF_GRID; y++)
+                {
+                    if (grid[x, y] != UNDERLINE)
+                    {
+                        NoOneWinning = true;
+                    }
+                    if (grid[x, y] == UNDERLINE)
+                    {
+                        NoOneWinning = false;
+                        break;
+                    }
+                }
+                if (NoOneWinning == false)
+                {
+                    break;
+                }
+            }
+            if (NoOneWinning == true) //the grid does not contain any more underline characters, so it is a tie
+            {
+                return true;
+            }
+            else //there are still empty spaces in the grid, the game continues
+            { 
+                return false; 
+            }
+        }
 
         /// <summary>
         /// Checking if there is a winning combination in the game

@@ -96,25 +96,6 @@ namespace Tic_Tac_Toe
         }
 
         /// <summary>
-        /// Compares the values that the player has given with the values from the computer, if they are the same
-        /// </summary>
-        /// <param name="x">numberOfRowFromComputer</param>
-        /// <param name="y">numberOfRowFromPlayer</param>
-        /// <param name="w">numberOfColumnFromComputer></param>
-        /// <param name="z">numberOfColumnFromPlayer</param>
-        public static bool PlayerOverwritesComputer(int x, int y, int w, int z)
-        {
-            if (x == y && w == z)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
         /// Checking the input from the player, if it is valid for this grid size
         /// </summary>
         /// <param name="number">Index number that we will use in the grid</param>
@@ -130,6 +111,14 @@ namespace Tic_Tac_Toe
                 Console.WriteLine("Please give me a valid number! The value has to be between 1 and 3!");
                 return false; 
             }
+        }
+
+        /// <summary>
+        /// Showing the message when nobody wins the game
+        /// </summary>
+        public static void ItIsATie()
+        {
+            Console.WriteLine("This is a tie, nobody wins!");
         }
 
     }
