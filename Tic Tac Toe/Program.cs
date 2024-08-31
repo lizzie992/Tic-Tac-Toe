@@ -7,8 +7,8 @@
             const int SIZE_OF_GRID = 3;
             string[,] grid = new string[SIZE_OF_GRID, SIZE_OF_GRID];
             const string UNDERLINE = " _ ";
-            const string PLAYERCHARACTER = " X ";
-            const string COMPUTERCHARACTER = " O ";
+            const string PLAYER_CHARACTER = " X ";
+            const string COMPUTER_CHARACTER = " O ";
 
             int numberOfRowFromPlayer = 9;
             int numberOfColumnFromPlayer = 9;
@@ -52,7 +52,7 @@
                     } while (UserInterface.IsTheNumberValid(numberOfColumnFromPlayer) == false);
                 }
 
-                grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYERCHARACTER;
+                grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
                 UserInterface.ComputerPlays();
@@ -66,7 +66,7 @@
                         numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
                     } while (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
                 }
-                grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTERCHARACTER;
+                grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
                 if (LogicalCode.NoOneWinning(grid, UNDERLINE) == true)
@@ -75,15 +75,15 @@
                     break;
                 }
 
-            } while (LogicalCode.Winning(grid, PLAYERCHARACTER, SIZE_OF_GRID) == false && LogicalCode.Winning(grid, COMPUTERCHARACTER, SIZE_OF_GRID) == false);
+            } while (LogicalCode.Winning(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.Winning(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false);
 
 
 
-            if (LogicalCode.Winning(grid, PLAYERCHARACTER, SIZE_OF_GRID))
+            if (LogicalCode.Winning(grid, PLAYER_CHARACTER, SIZE_OF_GRID))
             {
                 UserInterface.WonByPlayer();
             }
-            if (LogicalCode.Winning(grid, COMPUTERCHARACTER, SIZE_OF_GRID))
+            if (LogicalCode.Winning(grid, COMPUTER_CHARACTER, SIZE_OF_GRID))
             {
                 UserInterface.WonByComputer();
             }

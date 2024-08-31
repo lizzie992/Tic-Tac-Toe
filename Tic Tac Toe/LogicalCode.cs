@@ -112,8 +112,8 @@ namespace Tic_Tac_Toe
                 return true;
             }
             else //there are still empty spaces in the grid, the game continues
-            { 
-                return false; 
+            {
+                return false;
             }
         }
 
@@ -202,22 +202,9 @@ namespace Tic_Tac_Toe
                 }
                 if (grid[x, z] == Character && x == SIZE_OF_GRID - 1)
                 {
-                    PlayerWinning = true;
-                    break;
+                    return true;
                 }
-
-
-                if (PlayerWinning == true)
-                {
-                    break;
-                }
-
             }
-            if (PlayerWinning == true)
-            {
-                return true;
-            }
-
 
             for (int x = 0; x < SIZE_OF_GRID; x++) // diagonal row top left to right bottom
             {
@@ -233,23 +220,10 @@ namespace Tic_Tac_Toe
                 }
                 if (grid[x, y] == Character && y == SIZE_OF_GRID - 1)
                 {
-                    PlayerWinning = true;
-                    break;
-                }
-
-                if (PlayerWinning == true)
-                {
-                    break;
+                    return true;
                 }
             }
-            if (PlayerWinning == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }
