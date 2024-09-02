@@ -26,14 +26,14 @@
                 numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
                 numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
 
-                if (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true)
+                if (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer))
                 {
                     do
                     {
                         UserInterface.PrintMessagePlayAgain();
                         numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
                         numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
-                    } while (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
+                    } while (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer));
                 }
 
                 if (LogicalCode.CheckIfTheNumberIsValid(numberOfRowFromPlayer) == false)
@@ -60,13 +60,13 @@
                 UserInterface.PrintMessageComputerPlays();
                 numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
                 numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
-                if (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true)
+                if (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer))
                 {
                     do
                     {
                         numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
                         numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
-                    } while (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
+                    } while (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer));
                 }
                 grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTER_CHARACTER;
                 UserInterface.PrintGrid(grid);
