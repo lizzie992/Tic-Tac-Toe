@@ -75,15 +75,16 @@
                     break;
                 }
 
-            } while (LogicalCode.Winning(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.Winning(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false);
+            } while (LogicalCode.CheckingForAWinHorizontal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckingForAWinVertical(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckingForAWinDiagonal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false &&
+            LogicalCode.CheckingForAWinHorizontal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckingForAWinVertical(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckingForAWinDiagonal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false);
 
 
 
-            if (LogicalCode.Winning(grid, PLAYER_CHARACTER, SIZE_OF_GRID))
+            if (LogicalCode.CheckingForAWinHorizontal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckingForAWinVertical(grid, PLAYER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckingForAWinDiagonal(grid, PLAYER_CHARACTER, SIZE_OF_GRID))
             {
                 UserInterface.PrintMessageWonByPlayer();
             }
-            if (LogicalCode.Winning(grid, COMPUTER_CHARACTER, SIZE_OF_GRID))
+            if (LogicalCode.CheckingForAWinHorizontal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckingForAWinVertical(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckingForAWinDiagonal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID))
             {
                 UserInterface.PrintMessageWonByComputer();
             }

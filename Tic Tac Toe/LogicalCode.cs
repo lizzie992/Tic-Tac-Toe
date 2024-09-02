@@ -117,31 +117,32 @@ namespace Tic_Tac_Toe
             }
         }
 
+
         /// <summary>
         /// Checking if there is a winning combination in the game
         /// </summary>
         /// <param name="grid">Name of the grid</param>
-        /// <param name="Character">Character variable name</param>
-        /// <param name="SIZE_OF_GRID">Size of rows and columns in the grid</param>
-        /// <returns></returns>
-        public static bool Winning(string[,] grid, string Character, int SIZE_OF_GRID)
+        /// <param name="character">Character variable name</param>
+        /// <param name="size">Size of rows and columns in the grid</param>
+        /// <returns>Returns true / false</returns>
+        public static bool CheckingForAWinHorizontal(string[,] grid, string character, int size)
         {
             bool PlayerWinning = false;
 
-            for (int x = 0; x < SIZE_OF_GRID; x++) // horizontal rows
+            for (int x = 0; x < size; x++)
             {
-                for (int y = 0; y < SIZE_OF_GRID; y++)
+                for (int y = 0; y < size; y++)
                 {
-                    if (grid[x, y] != Character)
+                    if (grid[x, y] != character)
                     {
                         PlayerWinning = false;
                         break;
                     }
-                    if (grid[x, y] == Character && y < SIZE_OF_GRID - 1)
+                    if (grid[x, y] == character && y < size - 1)
                     {
                         continue;
                     }
-                    if (grid[x, y] == Character && y == SIZE_OF_GRID - 1)
+                    if (grid[x, y] == character && y == size - 1)
                     {
                         PlayerWinning = true;
                         break;
@@ -156,21 +157,33 @@ namespace Tic_Tac_Toe
             {
                 return true;
             }
+            return false;
+        }
 
-            for (int y = 0; y < SIZE_OF_GRID; y++) // vertical rows
+        /// <summary>
+        /// Checking if there is a winning combination in the game
+        /// </summary>
+        /// <param name="grid">Name of the grid</param>
+        /// <param name="character">Character variable name</param>
+        /// <param name="size">Size of rows and columns in the grid</param>
+        /// <returns>Returns true / false</returns>
+        public static bool CheckingForAWinVertical(string[,] grid, string character, int size)
+        {
+            bool PlayerWinning = false;
+            for (int y = 0; y < size; y++)
             {
-                for (int x = 0; x < SIZE_OF_GRID; x++)
+                for (int x = 0; x < size; x++)
                 {
-                    if (grid[x, y] != Character)
+                    if (grid[x, y] != character)
                     {
                         PlayerWinning = false;
                         break;
                     }
-                    if (grid[x, y] == Character && x < SIZE_OF_GRID - 1)
+                    if (grid[x, y] == character && x < size - 1)
                     {
                         continue;
                     }
-                    if (grid[x, y] == Character && x == SIZE_OF_GRID - 1)
+                    if (grid[x, y] == character && x == size - 1)
                     {
                         PlayerWinning = true;
                         break;
@@ -185,40 +198,50 @@ namespace Tic_Tac_Toe
             {
                 return true;
             }
+            return false;
+        }
 
-
-            int z = SIZE_OF_GRID;
-            for (int x = 0; x < SIZE_OF_GRID; x++) // diagonal row top right to left bottom
+        /// <summary>
+        /// Checking if there is a winning combination in the game
+        /// </summary>
+        /// <param name="grid">Name of the grid</param>
+        /// <param name="character">Character variable name</param>
+        /// <param name="size">Size of rows and columns in the grid</param>
+        /// <returns>Returns true / false</returns>
+        public static bool CheckingForAWinDiagonal(string[,] grid, string character, int size)
+        {
+            bool PlayerWinning = false;
+            int z = size;
+            for (int x = 0; x < size; x++) // diagonal row top right to left bottom
             {
                 z--;
-                if (grid[x, z] != Character)
+                if (grid[x, z] != character)
                 {
                     PlayerWinning = false;
                     break;
                 }
-                if (grid[x, z] == Character && x < SIZE_OF_GRID - 1)
+                if (grid[x, z] == character && x < size - 1)
                 {
                     continue;
                 }
-                if (grid[x, z] == Character && x == SIZE_OF_GRID - 1)
+                if (grid[x, z] == character && x == size - 1)
                 {
                     return true;
                 }
             }
-
-            for (int x = 0; x < SIZE_OF_GRID; x++) // diagonal row top left to right bottom
+            for (int x = 0; x < size; x++) // diagonal row top left to right bottom
             {
                 int y = x;
-                if (grid[x, y] != Character)
+                if (grid[x, y] != character)
                 {
                     PlayerWinning = false;
                     break;
                 }
-                if (grid[x, y] == Character && y < SIZE_OF_GRID - 1)
+                if (grid[x, y] == character && y < size - 1)
                 {
                     continue;
                 }
-                if (grid[x, y] == Character && y == SIZE_OF_GRID - 1)
+                if (grid[x, y] == character && y == size - 1)
                 {
                     return true;
                 }
