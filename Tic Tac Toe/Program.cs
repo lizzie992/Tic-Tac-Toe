@@ -36,20 +36,22 @@
                     } while (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
                 }
 
-                if (UserInterface.IsTheNumberValid(numberOfRowFromPlayer) == false)
+                if (LogicalCode.CheckIfTheNumberIsValid(numberOfRowFromPlayer) == false)
                 {
                     do
                     {
+                        UserInterface.PrintMessageNumberIsNotValid(); 
                         numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
-                    } while (UserInterface.IsTheNumberValid(numberOfRowFromPlayer) == false);
+                    } while (LogicalCode.CheckIfTheNumberIsValid(numberOfRowFromPlayer) == false);
                 }
 
-                if (UserInterface.IsTheNumberValid(numberOfColumnFromPlayer) == false)
+                if (LogicalCode.CheckIfTheNumberIsValid(numberOfColumnFromPlayer) == false)
                 {
                     do
                     {
+                        UserInterface.PrintMessageNumberIsNotValid();
                         numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
-                    } while (UserInterface.IsTheNumberValid(numberOfColumnFromPlayer) == false);
+                    } while (LogicalCode.CheckIfTheNumberIsValid(numberOfColumnFromPlayer) == false);
                 }
 
                 grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYER_CHARACTER;

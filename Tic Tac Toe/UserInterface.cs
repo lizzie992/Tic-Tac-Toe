@@ -70,6 +70,15 @@ namespace Tic_Tac_Toe
         }
 
         /// <summary>
+        /// Prints the message that the number entered by the player is not valid
+        /// </summary>
+        public static void PrintMessageNumberIsNotValid()
+        {
+            Console.WriteLine("Please give me a valid number! The value has to be between 1 and 3!");
+        }
+
+
+        /// <summary>
         /// Prints the text when the player won
         /// </summary>
         public static void PrintMessageWonByPlayer()
@@ -93,24 +102,6 @@ namespace Tic_Tac_Toe
             Console.WriteLine("\r\nPlease press any button to move on to the next round!");
             Console.ReadKey();
             Console.Clear();
-        }
-
-        /// <summary>
-        /// Checking the input from the player, if it is valid for this grid size
-        /// </summary>
-        /// <param name="number">Index number that we will use in the grid</param>
-        /// <returns></returns>
-        public static bool IsTheNumberValid(int number)
-        {
-            if (number <= 2 && number >= 0)
-            {
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Please give me a valid number! The value has to be between 1 and 3!");
-                return false; 
-            }
         }
 
         /// <summary>

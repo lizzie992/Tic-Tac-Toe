@@ -79,6 +79,25 @@ namespace Tic_Tac_Toe
         }
 
         /// <summary>
+        /// Checking the input from the player, if it is valid for this grid size
+        /// </summary>
+        /// <param name="number">Index number that we will use in the grid</param>
+        /// <returns></returns>
+        public static bool CheckIfTheNumberIsValid(int number)
+        {
+            const int MIN_NUMBER_OF_GRID = 0;
+            const int MAX_NUMBER_OF_GRID = 2;
+            if (number <= MAX_NUMBER_OF_GRID && number >= MIN_NUMBER_OF_GRID)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// CHecking if all the fields of the grid are filled up with characters. If everything is filled up and no winning combination, then the game is a tie
         /// </summary>
         /// <param name="grid">Name of the grid</param>
