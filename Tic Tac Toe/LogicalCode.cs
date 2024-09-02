@@ -66,7 +66,7 @@ namespace Tic_Tac_Toe
         /// <param name="w">numberOfColumnFromComputer></param>
         /// <param name="z">numberOfColumnFromPlayer</param>
         /// <returns></returns>
-        public static bool SomeoneOverwritesACharacter(int x, int y, int w, int z)
+        public static bool CheckForCharacterOverlap(int x, int y, int w, int z)
         {
             if (x == y && w == z)
             {
