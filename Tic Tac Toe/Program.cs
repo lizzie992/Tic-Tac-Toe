@@ -30,7 +30,7 @@
                 {
                     do
                     {
-                        UserInterface.PlayAgain();
+                        UserInterface.PrintMessagePlayAgain();
                         numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
                         numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
                     } while (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true);
@@ -55,7 +55,7 @@
                 grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
-                UserInterface.ComputerPlays();
+                UserInterface.PrintMessageComputerPlays();
                 numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
                 numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
                 if (LogicalCode.SomeoneOverwritesACharacter(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer) == true)
@@ -71,7 +71,7 @@
 
                 if (LogicalCode.NoOneWinning(grid, UNDERLINE) == true)
                 {
-                    UserInterface.ItIsATie();
+                    UserInterface.PrintMessageItIsATie();
                     break;
                 }
 
@@ -81,11 +81,11 @@
 
             if (LogicalCode.Winning(grid, PLAYER_CHARACTER, SIZE_OF_GRID))
             {
-                UserInterface.WonByPlayer();
+                UserInterface.PrintMessageWonByPlayer();
             }
             if (LogicalCode.Winning(grid, COMPUTER_CHARACTER, SIZE_OF_GRID))
             {
-                UserInterface.WonByComputer();
+                UserInterface.PrintMessageWonByComputer();
             }
         }
     }

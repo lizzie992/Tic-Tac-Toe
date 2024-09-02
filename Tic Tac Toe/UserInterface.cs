@@ -56,7 +56,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Prints the text when it is time for the computer to play its next move
         /// </summary>
-        public static void ComputerPlays()
+        public static void PrintMessageComputerPlays()
         {
             Console.WriteLine($"Now it is the Computer's turn!\r\nThe computer plays his next move:");
         }
@@ -64,7 +64,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Warning for the player that they cannot overwrite the computer's symbol
         /// </summary>
-        public static void PlayAgain()
+        public static void PrintMessagePlayAgain()
         {
             Console.WriteLine($"You cannot place overwrite the computer's symbol! Try again!\r\n");
         }
@@ -72,7 +72,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Prints the text when the player won
         /// </summary>
-        public static void WonByPlayer()
+        public static void PrintMessageWonByPlayer()
         {
             Console.WriteLine("You Won!");
         }
@@ -80,7 +80,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Prints the text when the computer won
         /// </summary>
-        public static void WonByComputer()
+        public static void PrintMessageWonByComputer()
         {
             Console.WriteLine("The computer won this game! Try again!");
         }
@@ -116,7 +116,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Showing the message when nobody wins the game
         /// </summary>
-        public static void ItIsATie()
+        public static void PrintMessageItIsATie()
         {
             Console.WriteLine("This is a tie, nobody wins!");
         }
