@@ -13,6 +13,7 @@ namespace Tic_Tac_Toe
     {
         const int SIZE_OF_GRID = 3;
         string[,] grid = new string[SIZE_OF_GRID, SIZE_OF_GRID];
+        const string UNDERLINE = " _ ";
 
         /// <summary>
         /// This method created an empty 3x3 grid
@@ -20,7 +21,6 @@ namespace Tic_Tac_Toe
         /// <param name="grid">add the name of the grid</param>
         public static void CreateEmptyGrid(string[,] grid)
         {
-            const string UNDERLINE = " _ ";
             int x = 0;
             int y = 0;
             for (x = 0; x < SIZE_OF_GRID; x++)
@@ -39,7 +39,7 @@ namespace Tic_Tac_Toe
         public static int GetComputerRow()
         {
             int minValue = 0;
-            int maxValue = 3;
+            int maxValue = SIZE_OF_GRID;
             Random random = new Random();
             int randomNumber = random.Next(minValue, maxValue);
             return randomNumber;
@@ -52,7 +52,7 @@ namespace Tic_Tac_Toe
         public static int GetComputerColumn()
         {
             int minValue = 0;
-            int maxValue = 3;
+            int maxValue = SIZE_OF_GRID;
             Random random = new Random();
             int randomNumber = random.Next(minValue, maxValue);
             return randomNumber;
@@ -85,9 +85,9 @@ namespace Tic_Tac_Toe
         /// <returns></returns>
         public static bool CheckPlayerInput(int number)
         {
-            const int MIN_NUMBER_OF_GRID = 0;
-            const int MAX_NUMBER_OF_GRID = 2;
-            if (number <= MAX_NUMBER_OF_GRID && number >= MIN_NUMBER_OF_GRID)
+            int minNumberOfGrid = 0;
+            int maxNumberOfGrid = SIZE_OF_GRID-1;
+            if (number <= maxNumberOfGrid && number >= minNumberOfGrid)
             {
                 return true;
             }
@@ -106,7 +106,6 @@ namespace Tic_Tac_Toe
         public static bool CheckTie(string[,] grid, string X)
         {
             bool NoOneWinning = false;
-            const string UNDERLINE = " _ ";
             for (int x = 0; x < SIZE_OF_GRID; x++)
             {
                 for (int y = 0; y < SIZE_OF_GRID; y++)

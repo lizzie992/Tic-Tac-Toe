@@ -33,8 +33,7 @@ namespace Tic_Tac_Toe
         /// <returns>Number of rows for the next character in the grid as an int</returns>
         public static int GetPlayerRow()
         {
-            const string INSTUCTION_FOR_ROW = "Please give me the number of row where you want to play your next move (1-3 from top to bottom):";
-            Console.WriteLine(INSTUCTION_FOR_ROW);
+            Console.WriteLine("Please give me the number of row where you want to play your next move (1-3 from top to bottom):");
             int x = Convert.ToInt32(Console.ReadLine());
             x--;
             return x;
@@ -46,8 +45,7 @@ namespace Tic_Tac_Toe
         /// <returns>Number of columns for the next character in the grid as an int</returns>
         public static int GetPLayerColumn()
         {
-            const string INSTUCTION_FOR_COLUMN = "Please give me the number of column where you want to play your next move (1-3 from left to right):";
-            Console.WriteLine(INSTUCTION_FOR_COLUMN);
+            Console.WriteLine("Please give me the number of column where you want to play your next move (1-3 from left to right):");
             int y = Convert.ToInt32(Console.ReadLine());
             y--;
             return y;
