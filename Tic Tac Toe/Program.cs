@@ -10,10 +10,6 @@
             const string PLAYER_CHARACTER = " X ";
             const string COMPUTER_CHARACTER = " O ";
 
-            int numberOfRowFromPlayer = 9;
-            int numberOfColumnFromPlayer = 9;
-            int numberOfRowFromComputer = 9;
-            int numberOfColumnFromComputer = 9;
 
             LogicalCode.CreateEmptyGrid(grid);
 
@@ -23,17 +19,17 @@
             {
                 UserInterface.ClearTheScreen();
 
-                numberOfRowFromPlayer = UserInterface.GetPlayerRow();
-                numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
+                int numberOfRowFromPlayer = UserInterface.GetPlayerRow();
+                int numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
 
-                if (LogicalCode.CheckCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer))
+                if (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromPlayer, numberOfColumnFromPlayer))
                 {
                     do
                     {
                         UserInterface.PrintPlayAgain();
                         numberOfRowFromPlayer = UserInterface.GetPlayerRow();
                         numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
-                    } while (LogicalCode.CheckCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer));
+                    } while (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromPlayer, numberOfColumnFromPlayer));
                 }
 
                 if (LogicalCode.CheckPlayerInput(numberOfRowFromPlayer) == false)
@@ -58,15 +54,15 @@
                 UserInterface.PrintGrid(grid);
 
                 UserInterface.PrintComputerPlays();
-                numberOfRowFromComputer = LogicalCode.GetComputerRow();
-                numberOfColumnFromComputer = LogicalCode.GetComputerColumn();
-                if (LogicalCode.CheckCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer))
+                int numberOfRowFromComputer = LogicalCode.GetComputerRow();
+                int numberOfColumnFromComputer = LogicalCode.GetComputerColumn();
+                if (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromComputer, numberOfColumnFromComputer))
                 {
                     do
                     {
                         numberOfRowFromComputer = LogicalCode.GetComputerRow();
                         numberOfColumnFromComputer = LogicalCode.GetComputerColumn();
-                    } while (LogicalCode.CheckCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer));
+                    } while (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromComputer, numberOfColumnFromComputer));
                 }
                 grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTER_CHARACTER;
                 UserInterface.PrintGrid(grid);

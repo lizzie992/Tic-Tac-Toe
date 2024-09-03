@@ -59,22 +59,21 @@ namespace Tic_Tac_Toe
         }
 
         /// <summary>
-        /// Compares the values that the computer has given with the values from the player, if they are the same
+        /// Checking if the input is trying to overlap with an already existing symbol in the grid
         /// </summary>
-        /// <param name="x">numberOfRowFromComputer</param>
-        /// <param name="y">numberOfRowFromPlayer</param>
-        /// <param name="w">numberOfColumnFromComputer></param>
-        /// <param name="z">numberOfColumnFromPlayer</param>
-        /// <returns></returns>
-        public static bool CheckCharacterOverlap(int x, int y, int w, int z)
+        /// <param name="grid">Name of the grid</param>
+        /// <param name="x">Number for the first index of the grid</param>
+        /// <param name="y">Number for the second index of the grid</param>
+        /// <returns>True if there is an overlap</returns>
+        public static bool CheckCharacterOverlap(string[,] grid, int x, int y)
         {
-            if (x == y && w == z)
-            {
-                return true;
-            }
-            else
+            if (grid[x, y] == UNDERLINE) //then it is still an empty place in the grid
             {
                 return false;
+            }
+            else //then it is already occupied with another symbol
+            {
+                return true;
             }
         }
 
