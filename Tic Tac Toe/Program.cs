@@ -23,72 +23,72 @@
             {
                 UserInterface.ClearTheScreen();
 
-                numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
-                numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
+                numberOfRowFromPlayer = UserInterface.GetPlayerRow();
+                numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
 
-                if (LogicalCode.CheckForCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer))
+                if (LogicalCode.CheckCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer))
                 {
                     do
                     {
-                        UserInterface.PrintMessagePlayAgain();
-                        numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
-                        numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
-                    } while (LogicalCode.CheckForCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer));
+                        UserInterface.PrintPlayAgain();
+                        numberOfRowFromPlayer = UserInterface.GetPlayerRow();
+                        numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
+                    } while (LogicalCode.CheckCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer));
                 }
 
-                if (LogicalCode.CheckIfTheNumberIsValid(numberOfRowFromPlayer) == false)
+                if (LogicalCode.CheckPlayerInput(numberOfRowFromPlayer) == false)
                 {
                     do
                     {
-                        UserInterface.PrintMessageNumberIsNotValid(); 
-                        numberOfRowFromPlayer = UserInterface.PlayerPlaysItsNextRow();
-                    } while (LogicalCode.CheckIfTheNumberIsValid(numberOfRowFromPlayer) == false);
+                        UserInterface.PrintNumberIsNotValid(); 
+                        numberOfRowFromPlayer = UserInterface.GetPlayerRow();
+                    } while (LogicalCode.CheckPlayerInput(numberOfRowFromPlayer) == false);
                 }
 
-                if (LogicalCode.CheckIfTheNumberIsValid(numberOfColumnFromPlayer) == false)
+                if (LogicalCode.CheckPlayerInput(numberOfColumnFromPlayer) == false)
                 {
                     do
                     {
-                        UserInterface.PrintMessageNumberIsNotValid();
-                        numberOfColumnFromPlayer = UserInterface.PlayerPlaysItsNextColumn();
-                    } while (LogicalCode.CheckIfTheNumberIsValid(numberOfColumnFromPlayer) == false);
+                        UserInterface.PrintNumberIsNotValid();
+                        numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
+                    } while (LogicalCode.CheckPlayerInput(numberOfColumnFromPlayer) == false);
                 }
 
                 grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
-                UserInterface.PrintMessageComputerPlays();
-                numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
-                numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
-                if (LogicalCode.CheckForCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer))
+                UserInterface.PrintComputerPlays();
+                numberOfRowFromComputer = LogicalCode.GetComputerRow();
+                numberOfColumnFromComputer = LogicalCode.GetComputerColumn();
+                if (LogicalCode.CheckCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer))
                 {
                     do
                     {
-                        numberOfRowFromComputer = LogicalCode.ComputerPlaysItsNextRow();
-                        numberOfColumnFromComputer = LogicalCode.ComputerPlaysItsNextColumn();
-                    } while (LogicalCode.CheckForCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer));
+                        numberOfRowFromComputer = LogicalCode.GetComputerRow();
+                        numberOfColumnFromComputer = LogicalCode.GetComputerColumn();
+                    } while (LogicalCode.CheckCharacterOverlap(numberOfRowFromComputer, numberOfRowFromPlayer, numberOfColumnFromComputer, numberOfColumnFromPlayer));
                 }
                 grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
-                if (LogicalCode.NoOneWinning(grid, UNDERLINE) == true)
+                if (LogicalCode.CheckTie(grid, UNDERLINE) == true)
                 {
-                    UserInterface.PrintMessageItIsATie();
+                    UserInterface.PrintTie();
                     break;
                 }
 
-            } while (LogicalCode.CheckingForAWinHorizontal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckingForAWinVertical(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckingForAWinDiagonal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false &&
-            LogicalCode.CheckingForAWinHorizontal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckingForAWinVertical(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckingForAWinDiagonal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false);
+            } while (LogicalCode.CheckWinHorizontal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckWinVertical(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckWinDiagonal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false &&
+            LogicalCode.CheckWinHorizontal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckWinVertical(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckWinDiagonal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false);
 
 
 
-            if (LogicalCode.CheckingForAWinHorizontal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckingForAWinVertical(grid, PLAYER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckingForAWinDiagonal(grid, PLAYER_CHARACTER, SIZE_OF_GRID))
+            if (LogicalCode.CheckWinHorizontal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckWinVertical(grid, PLAYER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckWinDiagonal(grid, PLAYER_CHARACTER, SIZE_OF_GRID))
             {
-                UserInterface.PrintMessageWonByPlayer();
+                UserInterface.PrintWonByPlayer();
             }
-            if (LogicalCode.CheckingForAWinHorizontal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckingForAWinVertical(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckingForAWinDiagonal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID))
+            if (LogicalCode.CheckWinHorizontal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckWinVertical(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckWinDiagonal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID))
             {
-                UserInterface.PrintMessageWonByComputer();
+                UserInterface.PrintWonByComputer();
             }
         }
     }

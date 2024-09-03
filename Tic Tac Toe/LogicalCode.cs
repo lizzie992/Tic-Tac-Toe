@@ -36,7 +36,7 @@ namespace Tic_Tac_Toe
         /// Returns a random number between 0-3 to use for the computer's symbol placement
         /// </summary>
         /// <returns>Returns the row's value for the computer's next move</returns>
-        public static int ComputerPlaysItsNextRow()
+        public static int GetComputerRow()
         {
             int minValue = 0;
             int maxValue = 3;
@@ -49,7 +49,7 @@ namespace Tic_Tac_Toe
         /// Returns a random number between 0-3 to use for the computer's symbol placement
         /// </summary>
         /// <returns>Returns the column's value for the computer's next move</returns>
-        public static int ComputerPlaysItsNextColumn()
+        public static int GetComputerColumn()
         {
             int minValue = 0;
             int maxValue = 3;
@@ -66,7 +66,7 @@ namespace Tic_Tac_Toe
         /// <param name="w">numberOfColumnFromComputer></param>
         /// <param name="z">numberOfColumnFromPlayer</param>
         /// <returns></returns>
-        public static bool CheckForCharacterOverlap(int x, int y, int w, int z)
+        public static bool CheckCharacterOverlap(int x, int y, int w, int z)
         {
             if (x == y && w == z)
             {
@@ -83,7 +83,7 @@ namespace Tic_Tac_Toe
         /// </summary>
         /// <param name="number">Index number that we will use in the grid</param>
         /// <returns></returns>
-        public static bool CheckIfTheNumberIsValid(int number)
+        public static bool CheckPlayerInput(int number)
         {
             const int MIN_NUMBER_OF_GRID = 0;
             const int MAX_NUMBER_OF_GRID = 2;
@@ -103,7 +103,7 @@ namespace Tic_Tac_Toe
         /// <param name="grid">Name of the grid</param>
         /// <param name="X">Name of the empty character</param>
         /// <returns></returns>
-        public static bool NoOneWinning(string[,] grid, string X)
+        public static bool CheckTie(string[,] grid, string X)
         {
             bool NoOneWinning = false;
             const string UNDERLINE = " _ ";
@@ -144,7 +144,7 @@ namespace Tic_Tac_Toe
         /// <param name="character">Character variable name</param>
         /// <param name="size">Size of rows and columns in the grid</param>
         /// <returns>Returns true / false</returns>
-        public static bool CheckingForAWinHorizontal(string[,] grid, string character, int size)
+        public static bool CheckWinHorizontal(string[,] grid, string character, int size)
         {
             bool PlayerWinning = false;
 
@@ -186,7 +186,7 @@ namespace Tic_Tac_Toe
         /// <param name="character">Character variable name</param>
         /// <param name="size">Size of rows and columns in the grid</param>
         /// <returns>Returns true / false</returns>
-        public static bool CheckingForAWinVertical(string[,] grid, string character, int size)
+        public static bool CheckWinVertical(string[,] grid, string character, int size)
         {
             bool PlayerWinning = false;
             for (int y = 0; y < size; y++)
@@ -227,7 +227,7 @@ namespace Tic_Tac_Toe
         /// <param name="character">Character variable name</param>
         /// <param name="size">Size of rows and columns in the grid</param>
         /// <returns>Returns true / false</returns>
-        public static bool CheckingForAWinDiagonal(string[,] grid, string character, int size)
+        public static bool CheckWinDiagonal(string[,] grid, string character, int size)
         {
             bool PlayerWinning = false;
             int z = size;

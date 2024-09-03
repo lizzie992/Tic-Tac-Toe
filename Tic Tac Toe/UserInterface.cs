@@ -31,7 +31,7 @@ namespace Tic_Tac_Toe
         /// Defines the number of rows for the next character in the grid
         /// </summary>
         /// <returns>Number of rows for the next character in the grid as an int</returns>
-        public static int PlayerPlaysItsNextRow()
+        public static int GetPlayerRow()
         {
             const string INSTUCTION_FOR_ROW = "Please give me the number of row where you want to play your next move (1-3 from top to bottom):";
             Console.WriteLine(INSTUCTION_FOR_ROW);
@@ -44,7 +44,7 @@ namespace Tic_Tac_Toe
         /// Defines the number of columns for the next character in the grid
         /// </summary>
         /// <returns>Number of columns for the next character in the grid as an int</returns>
-        public static int PlayerPlaysItsNextColumn()
+        public static int GetPLayerColumn()
         {
             const string INSTUCTION_FOR_COLUMN = "Please give me the number of column where you want to play your next move (1-3 from left to right):";
             Console.WriteLine(INSTUCTION_FOR_COLUMN);
@@ -56,7 +56,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Prints the text when it is time for the computer to play its next move
         /// </summary>
-        public static void PrintMessageComputerPlays()
+        public static void PrintComputerPlays()
         {
             Console.WriteLine($"Now it is the Computer's turn!\r\nThe computer plays his next move:");
         }
@@ -64,7 +64,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Warning for the player that they cannot overwrite the computer's symbol
         /// </summary>
-        public static void PrintMessagePlayAgain()
+        public static void PrintPlayAgain()
         {
             Console.WriteLine($"You cannot place overwrite the computer's symbol! Try again!\r\n");
         }
@@ -72,7 +72,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Prints the message that the number entered by the player is not valid
         /// </summary>
-        public static void PrintMessageNumberIsNotValid()
+        public static void PrintNumberIsNotValid()
         {
             Console.WriteLine("Please give me a valid number! The value has to be between 1 and 3!");
         }
@@ -81,7 +81,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Prints the text when the player won
         /// </summary>
-        public static void PrintMessageWonByPlayer()
+        public static void PrintWonByPlayer()
         {
             Console.WriteLine("You Won!");
         }
@@ -89,7 +89,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Prints the text when the computer won
         /// </summary>
-        public static void PrintMessageWonByComputer()
+        public static void PrintWonByComputer()
         {
             Console.WriteLine("The computer won this game! Try again!");
         }
@@ -107,7 +107,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Showing the message when nobody wins the game
         /// </summary>
-        public static void PrintMessageItIsATie()
+        public static void PrintTie()
         {
             Console.WriteLine("This is a tie, nobody wins!");
         }
