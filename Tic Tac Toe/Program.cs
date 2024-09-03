@@ -22,16 +22,6 @@
                 int numberOfRowFromPlayer = UserInterface.GetPlayerRow();
                 int numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
 
-                if (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromPlayer, numberOfColumnFromPlayer))
-                {
-                    do
-                    {
-                        UserInterface.PrintPlayAgain();
-                        numberOfRowFromPlayer = UserInterface.GetPlayerRow();
-                        numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
-                    } while (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromPlayer, numberOfColumnFromPlayer));
-                }
-
                 if (LogicalCode.CheckPlayerInput(numberOfRowFromPlayer) == false)
                 {
                     do
@@ -48,6 +38,16 @@
                         UserInterface.PrintNumberIsNotValid();
                         numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
                     } while (LogicalCode.CheckPlayerInput(numberOfColumnFromPlayer) == false);
+                }
+
+                if (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromPlayer, numberOfColumnFromPlayer))
+                {
+                    do
+                    {
+                        UserInterface.PrintPlayAgain();
+                        numberOfRowFromPlayer = UserInterface.GetPlayerRow();
+                        numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
+                    } while (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromPlayer, numberOfColumnFromPlayer));
                 }
 
                 grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYER_CHARACTER;
