@@ -18,22 +18,22 @@
                 int numberOfRowFromPlayer = UserInterface.GetPlayerRow();
                 int numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
 
-                if (LogicalCode.CheckPlayerInput(numberOfRowFromPlayer) == false)
+                if (LogicalCode.CheckPlayerInput(numberOfRowFromPlayer))
                 {
                     do
                     {
                         UserInterface.PrintNumberIsNotValid(); 
                         numberOfRowFromPlayer = UserInterface.GetPlayerRow();
-                    } while (LogicalCode.CheckPlayerInput(numberOfRowFromPlayer) == false);
+                    } while (LogicalCode.CheckPlayerInput(numberOfRowFromPlayer));
                 }
 
-                if (LogicalCode.CheckPlayerInput(numberOfColumnFromPlayer) == false)
+                if (LogicalCode.CheckPlayerInput(numberOfColumnFromPlayer))
                 {
                     do
                     {
                         UserInterface.PrintNumberIsNotValid();
                         numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
-                    } while (LogicalCode.CheckPlayerInput(numberOfColumnFromPlayer) == false);
+                    } while (LogicalCode.CheckPlayerInput(numberOfColumnFromPlayer));
                 }
 
                 if (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromPlayer, numberOfColumnFromPlayer))
