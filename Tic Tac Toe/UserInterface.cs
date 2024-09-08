@@ -96,9 +96,16 @@ namespace Tic_Tac_Toe
         /// </summary>
         public static void ClearTheScreen()
         {
+            Console.Clear();
+        }
+
+        /// <summary>
+        /// User needs to press a button to move on to the next round
+        /// </summary>
+        public static void PressButtonToMoveOn()
+        {
             Console.WriteLine("\r\nPlease press any button to move on to the next round!");
             Console.ReadKey();
-            Console.Clear();
         }
 
         /// <summary>

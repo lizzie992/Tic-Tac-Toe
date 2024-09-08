@@ -13,6 +13,7 @@
             do
             {
                 UserInterface.ClearTheScreen();
+                UserInterface.PressButtonToMoveOn();
 
                 int numberOfRowFromPlayer = UserInterface.GetPlayerRow();
                 int numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
