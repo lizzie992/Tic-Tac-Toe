@@ -4,12 +4,7 @@
     {
         static void Main(string[] args)
         {
-            const int SIZE_OF_GRID = 3;
-            string[,] grid = new string[SIZE_OF_GRID, SIZE_OF_GRID];
-            const string UNDERLINE = " _ ";
-            const string PLAYER_CHARACTER = " X ";
-            const string COMPUTER_CHARACTER = " O ";
-
+            string[,] grid = new string[Constants.SIZE_OF_GRID, Constants.SIZE_OF_GRID];
 
             LogicalCode.CreateEmptyGrid(grid);
 
@@ -50,7 +45,7 @@
                     } while (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromPlayer, numberOfColumnFromPlayer));
                 }
 
-                grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = PLAYER_CHARACTER;
+                grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = Constants.PLAYER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
                 UserInterface.PrintComputerPlays();
@@ -64,25 +59,25 @@
                         numberOfColumnFromComputer = LogicalCode.GetComputerColumn();
                     } while (LogicalCode.CheckCharacterOverlap(grid, numberOfRowFromComputer, numberOfColumnFromComputer));
                 }
-                grid[numberOfRowFromComputer, numberOfColumnFromComputer] = COMPUTER_CHARACTER;
+                grid[numberOfRowFromComputer, numberOfColumnFromComputer] = Constants.COMPUTER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
-                if (LogicalCode.CheckTie(grid, UNDERLINE) == true)
+                if (LogicalCode.CheckTie(grid, Constants.UNDERLINE) == true)
                 {
                     UserInterface.PrintTie();
                     break;
                 }
 
-            } while (LogicalCode.CheckWinHorizontal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckWinVertical(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckWinDiagonal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) == false &&
-            LogicalCode.CheckWinHorizontal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckWinVertical(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false && LogicalCode.CheckWinDiagonal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) == false);
+            } while (LogicalCode.CheckWinHorizontal(grid, Constants.PLAYER_CHARACTER) == false && LogicalCode.CheckWinVertical(grid, Constants.PLAYER_CHARACTER) == false && LogicalCode.CheckWinDiagonal(grid, Constants.PLAYER_CHARACTER) == false &&
+            LogicalCode.CheckWinHorizontal(grid, Constants.COMPUTER_CHARACTER) == false && LogicalCode.CheckWinVertical(grid, Constants.COMPUTER_CHARACTER) == false && LogicalCode.CheckWinDiagonal(grid, Constants.COMPUTER_CHARACTER) == false);
 
 
 
-            if (LogicalCode.CheckWinHorizontal(grid, PLAYER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckWinVertical(grid, PLAYER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckWinDiagonal(grid, PLAYER_CHARACTER, SIZE_OF_GRID))
+            if (LogicalCode.CheckWinHorizontal(grid, Constants.PLAYER_CHARACTER) || LogicalCode.CheckWinVertical(grid, Constants.PLAYER_CHARACTER) || LogicalCode.CheckWinDiagonal(grid, Constants.PLAYER_CHARACTER))
             {
                 UserInterface.PrintWonByPlayer();
             }
-            if (LogicalCode.CheckWinHorizontal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckWinVertical(grid, COMPUTER_CHARACTER, SIZE_OF_GRID) || LogicalCode.CheckWinDiagonal(grid, COMPUTER_CHARACTER, SIZE_OF_GRID))
+            if (LogicalCode.CheckWinHorizontal(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.CheckWinVertical(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.CheckWinDiagonal(grid, Constants.COMPUTER_CHARACTER))
             {
                 UserInterface.PrintWonByComputer();
             }

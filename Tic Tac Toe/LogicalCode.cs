@@ -11,9 +11,8 @@ namespace Tic_Tac_Toe
 
     class LogicalCode
     {
-        const int SIZE_OF_GRID = 3;
-        string[,] grid = new string[SIZE_OF_GRID, SIZE_OF_GRID];
-        const string UNDERLINE = " _ ";
+        
+        string[,] grid = new string[Constants.SIZE_OF_GRID, Constants.SIZE_OF_GRID];
 
         /// <summary>
         /// This method created an empty 3x3 grid
@@ -23,11 +22,11 @@ namespace Tic_Tac_Toe
         {
             int x = 0;
             int y = 0;
-            for (x = 0; x < SIZE_OF_GRID; x++)
+            for (x = 0; x < Constants.SIZE_OF_GRID; x++)
             {
-                for (y = 0; y < SIZE_OF_GRID; y++)
+                for (y = 0; y < Constants.SIZE_OF_GRID; y++)
                 {
-                    grid[x, y] = UNDERLINE;
+                    grid[x, y] = Constants.UNDERLINE;
                 }
             }
         }
@@ -39,7 +38,7 @@ namespace Tic_Tac_Toe
         public static int GetComputerRow()
         {
             int minValue = 0;
-            int maxValue = SIZE_OF_GRID;
+            int maxValue = Constants.SIZE_OF_GRID;
             Random random = new Random();
             int randomNumber = random.Next(minValue, maxValue);
             return randomNumber;
@@ -52,7 +51,7 @@ namespace Tic_Tac_Toe
         public static int GetComputerColumn()
         {
             int minValue = 0;
-            int maxValue = SIZE_OF_GRID;
+            int maxValue = Constants.SIZE_OF_GRID;
             Random random = new Random();
             int randomNumber = random.Next(minValue, maxValue);
             return randomNumber;
@@ -67,7 +66,7 @@ namespace Tic_Tac_Toe
         /// <returns>True if there is an overlap</returns>
         public static bool CheckCharacterOverlap(string[,] grid, int x, int y)
         {
-            if (grid[x, y] == UNDERLINE) //then it is still an empty place in the grid
+            if (grid[x, y] == Constants.UNDERLINE) //then it is still an empty place in the grid
             {
                 return false;
             }
@@ -85,7 +84,7 @@ namespace Tic_Tac_Toe
         public static bool CheckPlayerInput(int number)
         {
             int minNumberOfGrid = 0;
-            int maxNumberOfGrid = SIZE_OF_GRID-1;
+            int maxNumberOfGrid = Constants.SIZE_OF_GRID - 1;
             if (number <= maxNumberOfGrid && number >= minNumberOfGrid)
             {
                 return true;
@@ -105,15 +104,15 @@ namespace Tic_Tac_Toe
         public static bool CheckTie(string[,] grid, string X)
         {
             bool NoOneWinning = false;
-            for (int x = 0; x < SIZE_OF_GRID; x++)
+            for (int x = 0; x < Constants.SIZE_OF_GRID; x++)
             {
-                for (int y = 0; y < SIZE_OF_GRID; y++)
+                for (int y = 0; y < Constants.SIZE_OF_GRID; y++)
                 {
-                    if (grid[x, y] != UNDERLINE)
+                    if (grid[x, y] != Constants.UNDERLINE)
                     {
                         NoOneWinning = true;
                     }
-                    if (grid[x, y] == UNDERLINE)
+                    if (grid[x, y] == Constants.UNDERLINE)
                     {
                         NoOneWinning = false;
                         break;
@@ -142,24 +141,24 @@ namespace Tic_Tac_Toe
         /// <param name="character">Character variable name</param>
         /// <param name="size">Size of rows and columns in the grid</param>
         /// <returns>Returns true / false</returns>
-        public static bool CheckWinHorizontal(string[,] grid, string character, int size)
+        public static bool CheckWinHorizontal(string[,] grid, string character)
         {
             bool PlayerWinning = false;
 
-            for (int x = 0; x < size; x++)
+            for (int x = 0; x < Constants.SIZE_OF_GRID; x++)
             {
-                for (int y = 0; y < size; y++)
+                for (int y = 0; y < Constants.SIZE_OF_GRID; y++)
                 {
                     if (grid[x, y] != character)
                     {
                         PlayerWinning = false;
                         break;
                     }
-                    if (grid[x, y] == character && y < size - 1)
+                    if (grid[x, y] == character && y < Constants.SIZE_OF_GRID - 1)
                     {
                         continue;
                     }
-                    if (grid[x, y] == character && y == size - 1)
+                    if (grid[x, y] == character && y == Constants.SIZE_OF_GRID - 1)
                     {
                         PlayerWinning = true;
                         break;
@@ -184,23 +183,23 @@ namespace Tic_Tac_Toe
         /// <param name="character">Character variable name</param>
         /// <param name="size">Size of rows and columns in the grid</param>
         /// <returns>Returns true / false</returns>
-        public static bool CheckWinVertical(string[,] grid, string character, int size)
+        public static bool CheckWinVertical(string[,] grid, string character)
         {
             bool PlayerWinning = false;
-            for (int y = 0; y < size; y++)
+            for (int y = 0; y < Constants.SIZE_OF_GRID; y++)
             {
-                for (int x = 0; x < size; x++)
+                for (int x = 0; x < Constants.SIZE_OF_GRID; x++)
                 {
                     if (grid[x, y] != character)
                     {
                         PlayerWinning = false;
                         break;
                     }
-                    if (grid[x, y] == character && x < size - 1)
+                    if (grid[x, y] == character && x < Constants.SIZE_OF_GRID - 1)
                     {
                         continue;
                     }
-                    if (grid[x, y] == character && x == size - 1)
+                    if (grid[x, y] == character && x == Constants.SIZE_OF_GRID - 1)
                     {
                         PlayerWinning = true;
                         break;
@@ -225,11 +224,11 @@ namespace Tic_Tac_Toe
         /// <param name="character">Character variable name</param>
         /// <param name="size">Size of rows and columns in the grid</param>
         /// <returns>Returns true / false</returns>
-        public static bool CheckWinDiagonal(string[,] grid, string character, int size)
+        public static bool CheckWinDiagonal(string[,] grid, string character)
         {
             bool PlayerWinning = false;
-            int z = size;
-            for (int x = 0; x < size; x++) // diagonal row top right to left bottom
+            int z = Constants.SIZE_OF_GRID;
+            for (int x = 0; x < Constants.SIZE_OF_GRID; x++) // diagonal row top right to left bottom
             {
                 z--;
                 if (grid[x, z] != character)
@@ -237,16 +236,16 @@ namespace Tic_Tac_Toe
                     PlayerWinning = false;
                     break;
                 }
-                if (grid[x, z] == character && x < size - 1)
+                if (grid[x, z] == character && x < Constants.SIZE_OF_GRID - 1)
                 {
                     continue;
                 }
-                if (grid[x, z] == character && x == size - 1)
+                if (grid[x, z] == character && x == Constants.SIZE_OF_GRID - 1)
                 {
                     return true;
                 }
             }
-            for (int x = 0; x < size; x++) // diagonal row top left to right bottom
+            for (int x = 0; x < Constants.SIZE_OF_GRID; x++) // diagonal row top left to right bottom
             {
                 int y = x;
                 if (grid[x, y] != character)
@@ -254,11 +253,11 @@ namespace Tic_Tac_Toe
                     PlayerWinning = false;
                     break;
                 }
-                if (grid[x, y] == character && y < size - 1)
+                if (grid[x, y] == character && y < Constants.SIZE_OF_GRID - 1)
                 {
                     continue;
                 }
-                if (grid[x, y] == character && y == size - 1)
+                if (grid[x, y] == character && y == Constants.SIZE_OF_GRID - 1)
                 {
                     return true;
                 }

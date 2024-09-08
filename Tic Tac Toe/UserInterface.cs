@@ -13,10 +13,9 @@ namespace Tic_Tac_Toe
         public static void PrintGrid(string[,] grid)
         {
             Console.WriteLine("Here is the current state of the game: ");
-            const int SIZE_OF_GRID = 3;
-            for (int x = 0; x < SIZE_OF_GRID; x++)
+            for (int x = 0; x < Constants.SIZE_OF_GRID; x++)
             {
-                for (int y = 0; y < SIZE_OF_GRID; y++)
+                for (int y = 0; y < Constants.SIZE_OF_GRID; y++)
                 {
                     Console.Write(grid[x, y]);
                 }
