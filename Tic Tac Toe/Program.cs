@@ -12,9 +12,6 @@
 
             do
             {
-                UserInterface.ClearTheScreen();
-                UserInterface.PressButtonToMoveOn();
-
                 int numberOfRowFromPlayer = UserInterface.GetPlayerRow();
                 int numberOfColumnFromPlayer = UserInterface.GetPLayerColumn();
 
@@ -68,6 +65,9 @@
                     UserInterface.PrintTie();
                     break;
                 }
+
+                UserInterface.PressButtonToMoveOn();
+                UserInterface.ClearTheScreen();
 
             } while (LogicalCode.CheckWinHorizontal(grid, Constants.PLAYER_CHARACTER) == false && LogicalCode.CheckWinVertical(grid, Constants.PLAYER_CHARACTER) == false && LogicalCode.CheckWinDiagonal(grid, Constants.PLAYER_CHARACTER) == false &&
             LogicalCode.CheckWinHorizontal(grid, Constants.COMPUTER_CHARACTER) == false && LogicalCode.CheckWinVertical(grid, Constants.COMPUTER_CHARACTER) == false && LogicalCode.CheckWinDiagonal(grid, Constants.COMPUTER_CHARACTER) == false);

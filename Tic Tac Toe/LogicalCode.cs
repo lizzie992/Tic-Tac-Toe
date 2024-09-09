@@ -87,11 +87,11 @@ namespace Tic_Tac_Toe
             int maxNumberOfGrid = Constants.SIZE_OF_GRID - 1;
             if (number <= maxNumberOfGrid && number >= minNumberOfGrid)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 

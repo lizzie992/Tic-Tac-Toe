@@ -63,7 +63,7 @@ namespace Tic_Tac_Toe
         /// </summary>
         public static void PrintPlayAgain()
         {
-            Console.WriteLine($"You cannot place overwrite the computer's symbol! Try again!\r\n");
+            Console.WriteLine($"You cannot overwrite another symbol! Try again!\r\n");
         }
 
         /// <summary>
