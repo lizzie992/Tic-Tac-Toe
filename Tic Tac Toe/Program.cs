@@ -69,16 +69,16 @@
                 UserInterface.PressButtonToMoveOn();
                 UserInterface.ClearTheScreen();
 
-            } while (LogicalCode.CheckWinHorizontal(grid, Constants.PLAYER_CHARACTER) == false && LogicalCode.CheckWinVertical(grid, Constants.PLAYER_CHARACTER) == false && LogicalCode.CheckWinDiagonal(grid, Constants.PLAYER_CHARACTER) == false &&
-            LogicalCode.CheckWinHorizontal(grid, Constants.COMPUTER_CHARACTER) == false && LogicalCode.CheckWinVertical(grid, Constants.COMPUTER_CHARACTER) == false && LogicalCode.CheckWinDiagonal(grid, Constants.COMPUTER_CHARACTER) == false);
+            } while (!LogicalCode.IsWinHorizontal(grid, Constants.PLAYER_CHARACTER) && !LogicalCode.IsWinVertical(grid, Constants.PLAYER_CHARACTER) && !LogicalCode.IsWinDiagonal(grid, Constants.PLAYER_CHARACTER) &&
+            !LogicalCode.IsWinHorizontal(grid, Constants.COMPUTER_CHARACTER) && !LogicalCode.IsWinVertical(grid, Constants.COMPUTER_CHARACTER) && !LogicalCode.IsWinDiagonal(grid, Constants.COMPUTER_CHARACTER));
 
 
 
-            if (LogicalCode.CheckWinHorizontal(grid, Constants.PLAYER_CHARACTER) || LogicalCode.CheckWinVertical(grid, Constants.PLAYER_CHARACTER) || LogicalCode.CheckWinDiagonal(grid, Constants.PLAYER_CHARACTER))
+            if (LogicalCode.IsWinHorizontal(grid, Constants.PLAYER_CHARACTER) || LogicalCode.IsWinVertical(grid, Constants.PLAYER_CHARACTER) || LogicalCode.IsWinDiagonal(grid, Constants.PLAYER_CHARACTER))
             {
                 UserInterface.PrintWonByPlayer();
             }
-            if (LogicalCode.CheckWinHorizontal(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.CheckWinVertical(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.CheckWinDiagonal(grid, Constants.COMPUTER_CHARACTER))
+            if (LogicalCode.IsWinHorizontal(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.IsWinVertical(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.IsWinDiagonal(grid, Constants.COMPUTER_CHARACTER))
             {
                 UserInterface.PrintWonByComputer();
             }

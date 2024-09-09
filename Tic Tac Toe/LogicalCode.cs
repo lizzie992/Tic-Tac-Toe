@@ -141,7 +141,7 @@ namespace Tic_Tac_Toe
         /// <param name="character">Character variable name</param>
         /// <param name="size">Size of rows and columns in the grid</param>
         /// <returns>Returns true / false</returns>
-        public static bool CheckWinHorizontal(string[,] grid, string character)
+        public static bool IsWinHorizontal(string[,] grid, string character)
         {
             bool playerWinning = false;
 
@@ -183,7 +183,7 @@ namespace Tic_Tac_Toe
         /// <param name="character">Character variable name</param>
         /// <param name="size">Size of rows and columns in the grid</param>
         /// <returns>Returns true / false</returns>
-        public static bool CheckWinVertical(string[,] grid, string character)
+        public static bool IsWinVertical(string[,] grid, string character)
         {
             bool playerWinning = false;
             for (int y = 0; y < Constants.SIZE_OF_GRID; y++)
@@ -224,7 +224,7 @@ namespace Tic_Tac_Toe
         /// <param name="character">Character variable name</param>
         /// <param name="size">Size of rows and columns in the grid</param>
         /// <returns>Returns true / false</returns>
-        public static bool CheckWinDiagonal(string[,] grid, string character)
+        public static bool IsWinDiagonal(string[,] grid, string character)
         {
             bool playerWinning = false;
             int z = Constants.SIZE_OF_GRID;
