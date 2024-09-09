@@ -103,27 +103,27 @@ namespace Tic_Tac_Toe
         /// <returns></returns>
         public static bool CheckTie(string[,] grid, string UNDERLINE)
         {
-            bool NoOneWinning = false;
+            bool noOneWinning = false;
             for (int x = 0; x < Constants.SIZE_OF_GRID; x++)
             {
                 for (int y = 0; y < Constants.SIZE_OF_GRID; y++)
                 {
                     if (grid[x, y] != Constants.UNDERLINE)
                     {
-                        NoOneWinning = true;
+                        noOneWinning = true;
                     }
                     if (grid[x, y] == Constants.UNDERLINE)
                     {
-                        NoOneWinning = false;
+                        noOneWinning = false;
                         break;
                     }
                 }
-                if (NoOneWinning == false)
+                if (noOneWinning == false)
                 {
                     break;
                 }
             }
-            if (NoOneWinning) //the grid does not contain any more underline characters, so it is a tie
+            if (noOneWinning) //the grid does not contain any more underline characters, so it is a tie
             {
                 return true;
             }
@@ -143,7 +143,7 @@ namespace Tic_Tac_Toe
         /// <returns>Returns true / false</returns>
         public static bool CheckWinHorizontal(string[,] grid, string character)
         {
-            bool PlayerWinning = false;
+            bool playerWinning = false;
 
             for (int x = 0; x < Constants.SIZE_OF_GRID; x++)
             {
@@ -151,7 +151,7 @@ namespace Tic_Tac_Toe
                 {
                     if (grid[x, y] != character)
                     {
-                        PlayerWinning = false;
+                        playerWinning = false;
                         break;
                     }
                     if (grid[x, y] == character && y < Constants.SIZE_OF_GRID - 1)
@@ -160,16 +160,16 @@ namespace Tic_Tac_Toe
                     }
                     if (grid[x, y] == character && y == Constants.SIZE_OF_GRID - 1)
                     {
-                        PlayerWinning = true;
+                        playerWinning = true;
                         break;
                     }
                 }
-                if (PlayerWinning == true)
+                if (playerWinning == true)
                 {
                     break;
                 }
             }
-            if (PlayerWinning == true)
+            if (playerWinning == true)
             {
                 return true;
             }
@@ -185,14 +185,14 @@ namespace Tic_Tac_Toe
         /// <returns>Returns true / false</returns>
         public static bool CheckWinVertical(string[,] grid, string character)
         {
-            bool PlayerWinning = false;
+            bool playerWinning = false;
             for (int y = 0; y < Constants.SIZE_OF_GRID; y++)
             {
                 for (int x = 0; x < Constants.SIZE_OF_GRID; x++)
                 {
                     if (grid[x, y] != character)
                     {
-                        PlayerWinning = false;
+                        playerWinning = false;
                         break;
                     }
                     if (grid[x, y] == character && x < Constants.SIZE_OF_GRID - 1)
@@ -201,16 +201,16 @@ namespace Tic_Tac_Toe
                     }
                     if (grid[x, y] == character && x == Constants.SIZE_OF_GRID - 1)
                     {
-                        PlayerWinning = true;
+                        playerWinning = true;
                         break;
                     }
                 }
-                if (PlayerWinning == true)
+                if (playerWinning == true)
                 {
                     break;
                 }
             }
-            if (PlayerWinning == true)
+            if (playerWinning == true)
             {
                 return true;
             }
@@ -226,14 +226,14 @@ namespace Tic_Tac_Toe
         /// <returns>Returns true / false</returns>
         public static bool CheckWinDiagonal(string[,] grid, string character)
         {
-            bool PlayerWinning = false;
+            bool playerWinning = false;
             int z = Constants.SIZE_OF_GRID;
             for (int x = 0; x < Constants.SIZE_OF_GRID; x++) // diagonal row top right to left bottom
             {
                 z--;
                 if (grid[x, z] != character)
                 {
-                    PlayerWinning = false;
+                    playerWinning = false;
                     break;
                 }
                 if (grid[x, z] == character && x < Constants.SIZE_OF_GRID - 1)
@@ -250,7 +250,7 @@ namespace Tic_Tac_Toe
                 int y = x;
                 if (grid[x, y] != character)
                 {
-                    PlayerWinning = false;
+                    playerWinning = false;
                     break;
                 }
                 if (grid[x, y] == character && y < Constants.SIZE_OF_GRID - 1)
