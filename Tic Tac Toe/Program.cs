@@ -60,7 +60,7 @@
                 grid[numberOfRowFromComputer, numberOfColumnFromComputer] = Constants.COMPUTER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
-                if (LogicalCode.CheckTie(grid, Constants.UNDERLINE) == true)
+                if (LogicalCode.CheckTie(grid))
                 {
                     UserInterface.PrintTie();
                     break;

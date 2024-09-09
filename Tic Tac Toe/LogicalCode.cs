@@ -101,7 +101,7 @@ namespace Tic_Tac_Toe
         /// <param name="grid">Name of the grid</param>
         /// <param name="X">Name of the empty character</param>
         /// <returns></returns>
-        public static bool CheckTie(string[,] grid, string UNDERLINE)
+        public static bool CheckTie(string[,] grid)
         {
             bool noOneWinning = false;
             for (int x = 0; x < Constants.SIZE_OF_GRID; x++)
