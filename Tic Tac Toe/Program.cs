@@ -19,7 +19,7 @@
                 {
                     do
                     {
-                        UserInterface.PrintNumberIsNotValid(); 
+                        UserInterface.PrintNumberIsNotValid();
                         numberOfRowFromPlayer = UserInterface.GetPlayerRow();
                     } while (LogicalCode.CheckPlayerInput(numberOfRowFromPlayer));
                 }
@@ -46,6 +46,12 @@
                 grid[numberOfRowFromPlayer, numberOfColumnFromPlayer] = Constants.PLAYER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
+                if (LogicalCode.IsWinHorizontal(grid, Constants.PLAYER_CHARACTER) || LogicalCode.IsWinVertical(grid, Constants.PLAYER_CHARACTER) || LogicalCode.IsWinDiagonal(grid, Constants.PLAYER_CHARACTER))
+                {
+                    UserInterface.PrintWonByPlayer();
+                    break;
+                }
+
                 UserInterface.PrintComputerPlays();
                 int numberOfRowFromComputer = LogicalCode.GetComputerRow();
                 int numberOfColumnFromComputer = LogicalCode.GetComputerColumn();
@@ -60,6 +66,12 @@
                 grid[numberOfRowFromComputer, numberOfColumnFromComputer] = Constants.COMPUTER_CHARACTER;
                 UserInterface.PrintGrid(grid);
 
+                if (LogicalCode.IsWinHorizontal(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.IsWinVertical(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.IsWinDiagonal(grid, Constants.COMPUTER_CHARACTER))
+                {
+                    UserInterface.PrintWonByComputer();
+                    break;
+                }
+
                 if (LogicalCode.CheckTie(grid))
                 {
                     UserInterface.PrintTie();
@@ -71,17 +83,6 @@
 
             } while (!LogicalCode.IsWinHorizontal(grid, Constants.PLAYER_CHARACTER) && !LogicalCode.IsWinVertical(grid, Constants.PLAYER_CHARACTER) && !LogicalCode.IsWinDiagonal(grid, Constants.PLAYER_CHARACTER) &&
             !LogicalCode.IsWinHorizontal(grid, Constants.COMPUTER_CHARACTER) && !LogicalCode.IsWinVertical(grid, Constants.COMPUTER_CHARACTER) && !LogicalCode.IsWinDiagonal(grid, Constants.COMPUTER_CHARACTER));
-
-
-
-            if (LogicalCode.IsWinHorizontal(grid, Constants.PLAYER_CHARACTER) || LogicalCode.IsWinVertical(grid, Constants.PLAYER_CHARACTER) || LogicalCode.IsWinDiagonal(grid, Constants.PLAYER_CHARACTER))
-            {
-                UserInterface.PrintWonByPlayer();
-            }
-            if (LogicalCode.IsWinHorizontal(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.IsWinVertical(grid, Constants.COMPUTER_CHARACTER) || LogicalCode.IsWinDiagonal(grid, Constants.COMPUTER_CHARACTER))
-            {
-                UserInterface.PrintWonByComputer();
-            }
         }
     }
 }
