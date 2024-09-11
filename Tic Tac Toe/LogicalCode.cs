@@ -11,7 +11,7 @@ namespace Tic_Tac_Toe
 
     class LogicalCode
     {
-        
+
         string[,] grid = new string[Constants.SIZE_OF_GRID, Constants.SIZE_OF_GRID];
 
         /// <summary>
@@ -263,6 +263,24 @@ namespace Tic_Tac_Toe
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// Checking if there is any win (horizontal, vertical, diagonal) in 1 bool
+        /// </summary>
+        /// <param name="grid">Name of the grid</param>
+        /// <param name="character">Name of the player / computer character</param>
+        /// <returns></returns>
+        public static bool IsThereAWin(string[,] grid, string character)
+        {
+            if (LogicalCode.IsWinHorizontal(grid, character) || LogicalCode.IsWinVertical(grid, character) || LogicalCode.IsWinDiagonal(grid, character))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
